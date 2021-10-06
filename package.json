@@ -1,0 +1,25 @@
+{
+  "name": "express-init-code",
+  "description": "express初始化的空项目,配置好所有非逻辑代码",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
+    "start": "cross-env NODE_ENV=development node ./bin/www",
+    "api": "npx apidoc -i routes/ -o public/apiDoc/"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongoose": "^6.0.9",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "apidoc": "^0.29.0"
+  }
+}

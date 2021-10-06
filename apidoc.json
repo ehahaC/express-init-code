@@ -1,0 +1,8 @@
+{
+    "name": "项目名称",
+    "version": "0.0.0",
+    "description": "项目描述",
+    "apidoc": {
+        "title": "项目标题"
+    }
+}
