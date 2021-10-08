@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
+const { verify } = require("./utils/Token")
 const { createWriteStream } = require("fs");
 require("./model/connect");
 
@@ -46,18 +47,25 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(function (req, res, next) {
     if (ENV === "development") {
         next();
-    } else if (
+    } 
+    else if (
         !req.url.includes("/api/user/login") &&
         !req.url.includes("/api/user/register")
     ) {
         let token = req.headers["x-token"];
-        // let result = TokenUtil.verify(token);
-        if (true) {
-            res.send({ code: 403, msg: "登录已过期,请重新登录" });
-        } else {
-            next();
+        if ( !token ){
+            return res.send({ code: 403, msg: "token不存在" });
         }
-    } else {
+        let result = verify(token);
+        let { message } = result
+
+        // 如果存在错误信息
+        if ( message ){
+            return res.send({ code: 403, msg: message });
+        }
+        next()
+    } 
+    else {
         next();
     }
 });
