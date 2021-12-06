@@ -6,14 +6,18 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
     "start": "cross-env NODE_ENV=development node ./bin/www",
-    "api": "npx apidoc -i routes/ -o public/apiDoc/"
+    "api": "npx apidoc -i routes/ -o public/apiDoc/",
+    "test": "mocha test/ --bail",
+    "test-cov": "node node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- test/"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "express": "~4.16.1",
+    "helmet": "^4.6.0",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
@@ -21,6 +25,11 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "apidoc": "^0.29.0"
+    "apidoc": "^0.29.0",
+    "istanbul": "^0.4.5",
+    "istanbul-harmony": "^0.3.16",
+    "mocha": "^9.1.3",
+    "should": "^13.2.3",
+    "supertest": "^6.1.6"
   }
 }

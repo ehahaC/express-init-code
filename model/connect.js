@@ -1,10 +1,9 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const baseUrl = require("../config/database");
 
 // 连接数据库
-mongoose.connect(baseUrl, {
+mongoose.connect(process.env.MOONGOOSE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
@@ -23,5 +22,5 @@ db.on("error", function (error) {
 
 db.on("close", function () {
     console.log("数据库断开，重新连接数据库");
-    mongoose.connect(baseUrl, { server: { auto_reconnect: true } });
+    mongoose.connect(process.env.MOONGOOSE_URL, { server: { auto_reconnect: true } });
 });
