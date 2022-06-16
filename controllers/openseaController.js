@@ -8,7 +8,6 @@ const puppeteer = require("puppeteer");
  */
 exports.getData = async function (req, res, next) {
     const { contractAddress } = req.params;
-    console.log("contractAddress", contractAddress);
 
     try {
         let data = await getData(contractAddress)
