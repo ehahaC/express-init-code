@@ -16,7 +16,7 @@ require('dotenv').config({
     path: `./.env.${ENV === "development" ? "development" : "production"}`,
 });
 
-require("./model/connect");
+// require("./model/connect");
 
 var router = require("./routes/index");
 
