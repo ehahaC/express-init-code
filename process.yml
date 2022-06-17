@@ -1,5 +1,5 @@
 apps:
-  - name: express-init-code
+  - name: opensea-crawler
     script   : ./bin/www                      # 执行文件
     merge_logs: true                          # 设置追加日志而不是新建日志
     log_date_format: 'YYYY-MM-DD HH:mm:ss'    # 指定日志文件的时间格式

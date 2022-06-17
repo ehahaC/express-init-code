@@ -4,6 +4,9 @@ puppeteer
     .launch({
         headless: false,
         devtools: true,
+        // executablePath: '/usr/bin/chromium',
+        // args: ['--no-sandbox', '--disable-setuid-sandbox']
+        // args: ['--no-sandbox']
     })
     .then((browser) => {
         global.browser = browser;

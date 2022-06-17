@@ -1,8 +1,10 @@
 version: '2.0'
 services:
-  express-init-code:                            # 后端express容器
+  opensea-crawler:                              # 后端express容器
     #restart: always
     build: .                                    # 指定设定上下文根目录，然后以该目录为准指定Dockerfile
+    volumes:
+      - /E/projects/opensea-crawler:/home/project
     ports:                                      # 映射端口
       - 0.0.0.0:8090:3000
     # command:  "pm2 start process.yml"         # 容器创建后执行命令
