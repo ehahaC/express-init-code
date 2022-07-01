@@ -1,8 +1,8 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-var usersRouter = require("./users");
-const openseaRouter = require("./opensea");
+const usersRouter = require("./users");
+const authDemoRouter = require("./authDemo");
 
 router.get("/", (req, res) => {
     res.json({
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// router.use("/users", usersRouter);
-router.use("/opensea", openseaRouter)
+router.use("/user", usersRouter);
+router.use("/auth", authDemoRouter)
 
 module.exports = router;
